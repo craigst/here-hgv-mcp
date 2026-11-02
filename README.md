@@ -97,11 +97,15 @@ The gateway import starts managed servers with `std::process` pipes, so **stdio 
   "name": "here-hgv",
   "version": "1.0.0",
   "runtime": "node22",
-  "build_command": "npm install && npm run build",
+  "build_command": "npm run setup",
   "start_command": "node dist/index.js",
   "capabilities": { "high_privilege_tools": [], "delegation_supported": false }
 }
 ```
+
+The gateway runs `build_command` **without a shell** (it is whitespace-tokenised), so `&&` cannot
+appear there — `npm run setup` expands to `npm install && npm run build` inside package.json,
+where npm provides the shell.
 
 The gateway injects `HERE_API_KEY` at process start from an **encrypted configuration profile**
 attached to the server (Configurations → Profiles, or `POST /admin/config-profiles` then

@@ -22,7 +22,8 @@
     "dev": "node --experimental-strip-types --watch src/index.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "setup": "npm install && npm run build"
   },
   "keywords": [
     "mcp",
