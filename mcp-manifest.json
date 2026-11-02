@@ -1,0 +1,12 @@
+{
+  "name": "here-hgv",
+  "version": "1.0.0",
+  "runtime": "node22",
+  "build_command": "npm install && npm run build",
+  "start_command": "node dist/index.js",
+  "required_secrets": ["HERE_API_KEY"],
+  "capabilities": {
+    "high_privilege_tools": [],
+    "delegation_supported": false
+  }
+}

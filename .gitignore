@@ -1,0 +1,19 @@
+node_modules/
+dist/
+coverage/
+.npm-cache/
+.scratch/
+*.log
+npm-debug.log*
+
+# Never commit secrets
+.env
+.env.*
+!.env.example
+
+# Local generated artifacts
+out/
+maps/
+.test-data/
+.DS_Store
+.env.local

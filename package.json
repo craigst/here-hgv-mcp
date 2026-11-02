@@ -1,0 +1,56 @@
+{
+  "name": "here-hgv-mcp",
+  "version": "1.0.0",
+  "description": "Production-grade MCP server for HERE Platform location services, specialised for HGV (heavy goods vehicle) navigation: geocoding, places, truck routing with full vehicle profile, matrices, isolines, multi-stop optimisation, live traffic, tolls and static maps.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "here-hgv-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "mcp-manifest.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "node --experimental-strip-types --watch src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "here",
+    "routing",
+    "hgv",
+    "truck",
+    "logistics",
+    "geocoding",
+    "traffic",
+    "tolls"
+  ],
+  "author": {
+    "name": "Craig CXS",
+    "email": "admin@evoonline.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigst/here-hgv-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  }
+}
