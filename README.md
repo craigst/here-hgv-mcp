@@ -104,7 +104,7 @@ The gateway import starts managed servers with `std::process` pipes, so **stdio 
 ```
 
 The gateway runs `build_command` **without a shell** (it is whitespace-tokenised), so `&&` cannot
-appear there — `npm run setup` expands to `npm install && npm run build` inside package.json,
+appear there — `npm run setup` expands to `npm install --include=dev && npm run build` inside package.json,
 where npm provides the shell.
 
 The gateway injects `HERE_API_KEY` at process start from an **encrypted configuration profile**
