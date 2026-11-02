@@ -99,12 +99,16 @@ The gateway import starts managed servers with `std::process` pipes, so **stdio 
   "runtime": "node22",
   "build_command": "npm install && npm run build",
   "start_command": "node dist/index.js",
-  "required_secrets": ["HERE_API_KEY"],
   "capabilities": { "high_privilege_tools": [], "delegation_supported": false }
 }
 ```
 
-The gateway injects `HERE_API_KEY` from its vault at process start. The server fails fast with a clear JSON error if it is missing.
+The gateway injects `HERE_API_KEY` at process start from an **encrypted configuration profile**
+attached to the server (Configurations → Profiles, or `POST /admin/config-profiles` then
+`POST /admin/config-profiles/:id/apply`). `required_secrets` is deliberately **not** declared in
+the manifest: it makes the gateway resolve the name from its internal secret namespace and abort
+the start when absent, whereas the supported path for this service is a profile-owned value.
+The server fails fast with a clear JSON error if `HERE_API_KEY` is missing at runtime.
 
 ### Streamable HTTP
 
